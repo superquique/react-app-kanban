@@ -93,12 +93,13 @@ header, footer {
 
 .sidebar {
   display: flex;
-  flex: 1;
+
   flex-direction: column;
+  
   justify-content: left;
   align-items: start;
   background-color: #D7DCE0;
-  width: 15%;
+  width: 15vw;
 }
 
 .sidebar-menu {
@@ -115,3 +116,74 @@ header, footer {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.column {
+  background-color: #D7DCE0;
+  color: white;
+  width: 30%;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.column h3 {
+  color: white;
+  margin: 0;
+  height: 8vh;
+  line-height: 8vh; 
+  text-align: center;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.app-content {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+}
+
+.task {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.task h4 {
+  margin: 0;
+}
+
+.task-footer {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  justify-content: space-between;
+  align-items: end;
+  margin: 0;
+}
+
+.task-header {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  justify-content: space-between;
+  align-items: end;
+  margin: 0;
+}
+
+.task-header:hover {
+  cursor: pointer;
+}
+
+.task-footer-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* .task-assignee {
+  margin: 0;
+}
+
+.task-due-date {
+  margin: 0;
+} */
