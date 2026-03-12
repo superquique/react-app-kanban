@@ -1,45 +1,3 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
-
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-} */
-
-/* .card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
 
 html, body {
   height: 100%;
@@ -50,6 +8,16 @@ html, body {
 
 header, footer {
   flex-shrink: 0; /* Prevents them from squishing if content grows */
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
 
 .app-container {
@@ -112,7 +80,7 @@ header, footer {
   color: #193343;
 }
 
-.footer a {
+.footer button {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -164,20 +132,86 @@ header, footer {
 
 .task-header {
   display: flex;
-  flex-direction: row;
-  flex-grow: 0;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: end;
-  margin: 0;
+  align-items: center;
+  width: 50vw;
 }
 
-.task-header:hover {
+.task-header button {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.task-header-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.task-header-child:hover {
   cursor: pointer;
 }
 
 .task-footer-child {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.task-page {
+  background-color: #D7DCE0;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  width: 30vw;
+}
+
+.task-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 30vw;
+}
+
+.task-details-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  text-align: center;
+}
+
+.about-info {
+  width: 50vw;
+  text-align: justify;
+}
+
+.about-info h1 {
+  text-align: center;
+}
+
+.team-info {
+  width: 50vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.not-found {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .task-assignee {
