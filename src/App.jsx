@@ -3,9 +3,12 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
-import Column from './components/Column';
-
+import DashboardPage from './pages/DashboardPage';
 import tasks from './data/tasks.json';
+import { Route, Routes } from 'react-router-dom';
+import AboutPage from './pages/AboutPage';
+import TaskDetailsPage from './pages/TaskDetailsPage';
+
 
 
 function App() {
@@ -26,29 +29,13 @@ function App() {
         <div className="app-content">
           <Sidebar />
 
-          <Column 
-            bgColorTitle="red" 
-            bgColorTask="lightCoral" 
-            taskList={taskList}
-            columnType="To Do"
-            deleteTaskCallback={deleteTask}
-          />
-
-          <Column 
-            bgColorTitle="orangeRed" 
-            bgColorTask="lightSalmon" 
-            taskList={taskList}
-            columnType="In Progress"
-            deleteTaskCallback={deleteTask}
-          />
-
-          <Column 
-            bgColorTitle="blue" 
-            bgColorTask="lightSteelBlue" 
-            taskList={taskList}
-            columnType="Done"
-            deleteTaskCallback={deleteTask}
-          />
+          <Routes>
+            <Route path="/" element={<DashboardPage taskList={taskList} onDelete={deleteTask} />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/task-details/:taskId" element={<TaskDetailsPage taskArr={taskList} />} />
+            <Route path="*" element={ <h1 className='not-found'>Página no encontrada</h1> } />
+          </Routes>
+          
 
         </div>
 
