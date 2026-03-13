@@ -22,6 +22,22 @@ function App() {
 
     setTaskList(newTaskList);
   }
+
+  const addTask = (newTaskDetails) => {
+    console.log("adding new task...");
+    const newId = Math.max(...taskList.map(taskObj => taskObj.id)) + 1;
+    console.log("newId", newId);
+    newTaskDetails.id = String(newId);
+    console.log("newTaskDetails", newTaskDetails);
+    const newTaskList = [newTaskDetails, ...taskList];
+    setTaskList(newTaskList);
+  }
+
+  const updateTask = (taskDetails) => {
+    const filteredTasks = taskList.filter(task => taskDetails.id !== task.id);
+    const newTaskList = [taskDetails, ...filteredTasks];
+    setTaskList(newTaskList);
+  }
   
   return (
     <div className='app-container'>
@@ -30,9 +46,9 @@ function App() {
           <Sidebar />
 
           <Routes>
-            <Route path="/" element={<DashboardPage taskList={taskList} onDelete={deleteTask} />} />
+            <Route path="/" element={<DashboardPage taskList={taskList} onDelete={deleteTask} onCreate={addTask} />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/task-details/:taskId" element={<TaskDetailsPage taskArr={taskList} />} />
+            <Route path="/task-details/:taskId" element={<TaskDetailsPage taskArr={taskList} onUpdate={updateTask} />} />
             <Route path="*" element={ <h1 className='not-found'>Página no encontrada</h1> } />
           </Routes>
           
