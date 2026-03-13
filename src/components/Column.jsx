@@ -11,6 +11,10 @@ function Column (props) {
             <h3 style={{backgroundColor: props.bgColorTitle}}>
                 {props.columnType}
             </h3>
+            
+            { props.columnType === "To Do" &&
+                <button onClick={ props.onToggleForm }>Add new task</button>
+            }
 
             { filteredTasks &&
                 filteredTasks.map((taskObj, i, arr) => {
