@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-function TaskDetailsPage ({ taskArr, onUpdate }) {
+function TaskDetailsPage ({ taskArr, onUpdate, taskColors }) {
     const {taskId} = useParams();
     const taskDetails = taskArr.find((task) => {
         return task.id === taskId
@@ -38,12 +38,25 @@ function TaskDetailsPage ({ taskArr, onUpdate }) {
         navigate("/");
     }
 
+    const borderColor = taskColors[status][0];
+    const bgColor = taskColors[status][1];
+
     return (
+        
         <div className="task-page">
             { taskDetails &&
-            <div className="task-detail-card">  
-
-                <form onSubmit={handleSubmit} className="form">
+            <div className="task-detail-card" > 
+                <form onSubmit={handleSubmit} className="form" style={{
+                    backgroundColor: bgColor,
+                    borderColor: borderColor
+                }}>
+                    <Link to="/">
+                        <div className="task-header-child" onClick={() => {}}>
+                            <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                    </Link>
                     <label>
                         Title
                         <input 
@@ -120,8 +133,11 @@ function TaskDetailsPage ({ taskArr, onUpdate }) {
                         />
                     </label>
                     
-                    <button>Save</button>
+                    <button style={{
+                        backgroundColor: borderColor
+                    }}>Save</button>
                 </form>
+
                 {/* <div className="task-header-detail">
                     <div className="task-header-child">        
                         <h2>

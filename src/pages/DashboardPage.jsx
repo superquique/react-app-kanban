@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Column from "../components/Column";
 import AddTask from "../components/AddTask";
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 function DashboardPage (props) {
 
@@ -18,29 +20,34 @@ function DashboardPage (props) {
                     onToggleForm={toggleForm}
                 />
             }
-
-            <Column 
-                bgColorTitle="red" 
-                bgColorTask="lightCoral" 
-                taskList={props.taskList}
-                columnType="To Do"
-                deleteTaskCallback={props.onDelete}
-                onToggleForm={toggleForm}
-            />
-            <Column 
-                bgColorTitle="orangeRed" 
-                bgColorTask="lightSalmon" 
-                taskList={props.taskList}
-                columnType="In Progress"
-                deleteTaskCallback={props.onDelete}
-            />
-            <Column 
-                bgColorTitle="blue" 
-                bgColorTask="lightSteelBlue" 
-                taskList={props.taskList}
-                columnType="Done"
-                deleteTaskCallback={props.onDelete}
-            />
+            
+            <DndProvider backend={HTML5Backend}>
+                <Column 
+                    bgColorTitle={props.taskColors["To Do"][0]}
+                    bgColorTask={props.taskColors["To Do"][1]} 
+                    taskList={props.taskList}
+                    columnType="To Do"
+                    deleteTaskCallback={props.onDelete}
+                    onToggleForm={toggleForm}
+                    onUpdate={props.onUpdate}
+                />
+                <Column 
+                    bgColorTitle={props.taskColors["In Progress"][0]}
+                    bgColorTask={props.taskColors["In Progress"][1]} 
+                    taskList={props.taskList}
+                    columnType="In Progress"
+                    deleteTaskCallback={props.onDelete}
+                    onUpdate={props.onUpdate}
+                />
+                <Column 
+                    bgColorTitle={props.taskColors["Done"][0]}
+                    bgColorTask={props.taskColors["Done"][1]} 
+                    taskList={props.taskList}
+                    columnType="Done"
+                    deleteTaskCallback={props.onDelete}
+                    onUpdate={props.onUpdate}
+                />
+            </DndProvider>
         </>
     )
 }

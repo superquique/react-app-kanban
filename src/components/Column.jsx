@@ -1,19 +1,44 @@
+import { useDrop } from 'react-dnd'
 import Task from "./Task";
 
 function Column (props) {
 
+    const moveTask = (taskId) => {
+        const filteredTask = props.taskList.find((task) => {
+            return task.id === taskId;
+        })
+
+        filteredTask.status = props.columnType;
+
+        console.log(filteredTask);
+
+        props.onUpdate(filteredTask);
+       
+    }
+
+    const [collectedProps, drop] = useDrop(() => ({
+        accept: 'TASK',
+        drop: (item) => moveTask(item.id)
+    }))
+
     const filteredTasks = props.taskList.filter((task) => {
         return task.status === props.columnType;
     })
+    
 
     return (
-        <div className="column" style={{backgroundColor: props.bgColorContent}}>
+        <div ref={drop} className="column" style={{
+            backgroundColor: props.bgColorConten,
+            borderColor: props.bgColorTitle
+            }}>
             <h3 style={{backgroundColor: props.bgColorTitle}}>
                 {props.columnType}
             </h3>
             
             { props.columnType === "To Do" &&
-                <button onClick={ props.onToggleForm }>Add new task</button>
+                <div id="add-task-button">
+                    <button style={{backgroundColor: props.bgColorTitle}} onClick={ props.onToggleForm }>Add new task</button>
+                </div>
             }
 
             { filteredTasks &&

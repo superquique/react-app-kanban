@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
+import { useDrag } from 'react-dnd'
 
 function Task (props) {
+    const [{ isDragging }, drag, dragPreview] = useDrag(() => ({
+		// "type" is required. It is used by the "accept" specification of drop targets.
+        type: 'TASK',
+            // The collect function utilizes a "monitor" instance (see the Overview for what this is)
+            // to pull important pieces of state from the DnD system.
+        item: {id: props.taskDetails.id},
+        collect: (monitor) => ({
+            isDragging: monitor.isDragging()
+        })
+    }))
+
     return (
-        <div className="task" style={{backgroundColor: props.bgColor}}>
+        <div ref={drag} className="task" style={{backgroundColor: props.bgColor}}>
             { props.taskDetails &&
             <>  
                 <div className="task-header">
@@ -39,6 +51,7 @@ function Task (props) {
             </>
             }
         </div>
+        
     )
 }
 

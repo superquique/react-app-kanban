@@ -111,7 +111,8 @@ function AddTask ({ onCreate, onToggleForm }) {
                     />
                 </label>
                 
-                <button>Add new task</button>
+                <button type="submit" >Add new task</button>
+                <button onClick={onToggleForm}>Cancel</button>
             </form>
         </div>
     )
