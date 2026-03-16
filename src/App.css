@@ -1,4 +1,10 @@
 
+:root {
+  --main-bg-color: #C9D9E8;
+  --navbar-bg-color: #D9E3EC;
+  --footer-bg-color: #B8CCE0;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -17,7 +23,6 @@ a {
 
 button {
   color: white;
-  background-color: lightcoral;
   border: none;
   cursor: pointer;
   padding: 0.8em;
@@ -51,11 +56,10 @@ select {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #009bd4;
+  background-color: var(--navbar-bg-color);
 }
 
 .logo {
-  color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -74,19 +78,18 @@ select {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #009bd4;
+  background-color: var(--footer-bg-color);
   width: 100%;
   height: 6vh;
 }
 
 .sidebar {
   display: flex;
-
   flex-direction: column;
-  
   justify-content: left;
   align-items: start;
-  background-color: #D7DCE0;
+  background-color: var(--main-bg-color);
+  color: black;
   width: 15vw;
 }
 
@@ -97,7 +100,6 @@ select {
 .sidebar-menu a, h3 {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #193343;
 }
 
 .footer button {
@@ -106,10 +108,10 @@ select {
 }
 
 .column {
-  background-color: #D7DCE0;
   color: white;
   width: 30%;
   margin: 10px;
+  border: 4px solid;
   border-radius: 10px;
 }
 
@@ -119,7 +121,6 @@ select {
   height: 8vh;
   line-height: 8vh; 
   text-align: center;
-  border-radius: 10px 10px 0px 0px;
 }
 
 .app-content {
@@ -138,6 +139,13 @@ select {
 
 .task h4 {
   margin: 0;
+}
+
+#add-task-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 .task-footer {
@@ -195,7 +203,6 @@ select {
 }
 
 .task-detail-card {
-  background-color: #D7DCE0;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -38,7 +38,13 @@ function App() {
     const newTaskList = [taskDetails, ...filteredTasks];
     setTaskList(newTaskList);
   }
-  
+
+  const taskColors = {
+    "To Do": ["crimson", "#ED4062"],
+    "In Progress": ["#DC5014", "#ED7440"],
+    "Done": ["#14A0DC", "#40B9ED"]
+  }  
+
   return (
     <div className='app-container'>
       <Navbar />
@@ -46,9 +52,23 @@ function App() {
           <Sidebar />
 
           <Routes>
-            <Route path="/" element={<DashboardPage taskList={taskList} onDelete={deleteTask} onCreate={addTask} />} />
+            <Route path="/" element={
+              <DashboardPage 
+                taskList={taskList} 
+                onDelete={deleteTask} 
+                onCreate={addTask} 
+                onUpdate={updateTask}
+                taskColors={taskColors}
+              />} 
+            />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/task-details/:taskId" element={<TaskDetailsPage taskArr={taskList} onUpdate={updateTask} />} />
+            <Route path="/task-details/:taskId" element={
+              <TaskDetailsPage 
+                taskArr={taskList} 
+                onUpdate={updateTask} 
+                taskColors={taskColors}
+              />
+            } />
             <Route path="*" element={ <h1 className='not-found'>Página no encontrada</h1> } />
           </Routes>
           
