@@ -14,6 +14,7 @@ import TaskDetailsPage from './pages/TaskDetailsPage';
 function App() {
 
   const [taskList, setTaskList] = useState(tasks);
+  const [filteredTaskList, setFilteredTaskList] = useState(null);
 
   const deleteTask = (taskId) => {
     const newTaskList = taskList.filter((task) => {
@@ -39,6 +40,21 @@ function App() {
     setTaskList(newTaskList);
   }
 
+  const filterTasks = (searchValue) => {
+    console.log("filtering tasks", searchValue);
+    if (searchValue) {
+      const filteredTasks = taskList.filter(
+        task => task.title.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
+      )
+
+      setFilteredTaskList(filteredTasks);
+      
+    } else {
+      setFilteredTaskList(null);
+    }
+    
+  }
+
   const taskColors = {
     "To Do": ["crimson", "#ED4062"],
     "In Progress": ["#DC5014", "#ED7440"],
@@ -54,11 +70,12 @@ function App() {
           <Routes>
             <Route path="/" element={
               <DashboardPage 
-                taskList={taskList} 
+                taskList={filteredTaskList !== null ? filteredTaskList : taskList} 
                 onDelete={deleteTask} 
                 onCreate={addTask} 
                 onUpdate={updateTask}
                 taskColors={taskColors}
+                onFilterTasks={filterTasks}
               />} 
             />
             <Route path="/about" element={<AboutPage />} />
