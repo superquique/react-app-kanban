@@ -1,8 +1,8 @@
 
 :root {
-  --main-bg-color: #C9D9E8;
-  --navbar-bg-color: #D9E3EC;
-  --footer-bg-color: #B8CCE0;
+  --main-bg-color: #b5b5b5;
+  --main-color: #292107;
+  --dashboard-bg-color: #e2e2e2;
 }
 
 html, body {
@@ -51,12 +51,32 @@ select {
   height: 100vh;
 }
 
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 85vw;
+  height: 84vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dashboard-columns {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: var(--navbar-bg-color);
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+  height: 10vh;
 }
 
 .logo {
@@ -78,7 +98,8 @@ select {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: var(--footer-bg-color);
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
   width: 100%;
   height: 6vh;
 }
@@ -86,11 +107,12 @@ select {
 .sidebar {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: left;
   align-items: start;
   background-color: var(--main-bg-color);
-  color: black;
-  width: 15vw;
+  color: var(--main-color);
+  max-width: 15vw;
 }
 
 .sidebar-menu {
@@ -124,6 +146,7 @@ select {
 }
 
 .app-content {
+  background-color: var(--dashboard-bg-color);
   display: flex;
   flex: 1;
 }
@@ -142,9 +165,15 @@ select {
 }
 
 #add-task-button {
+  background-color: var(--main-color);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px;
+}
+
+.add-task button {
+  background-color: var(--main-color);
   margin: 10px;
 }
 
@@ -262,9 +291,9 @@ select {
 }
 
 .form {
-  color: white;
-  background-color: lightCoral;
-  border: 2px solid red;
+  color: var(--main-color);
+  background-color: var(--dashboard-bg-color);
+  border: 2px solid var(--main-color);
   border-radius: 10px;
   padding: 2em;
 }
