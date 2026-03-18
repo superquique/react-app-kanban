@@ -150,6 +150,7 @@ select {
 }
 
 .column {
+  flex: 1;
   color: white;
   border: 4px solid var(--main-color);
   border-radius: 10px;
