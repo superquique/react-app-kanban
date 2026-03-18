@@ -31,7 +31,8 @@ function DashboardPage (props) {
             <div className="dashboard-header">
                 <button id="add-task-button" onClick={ toggleForm }>Add new task</button>
 
-                <input 
+                <input
+                    className="search-bar"
                     type="text" 
                     name="search-bar" 
                     placeholder="Search a task by title"

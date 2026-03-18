@@ -31,7 +31,7 @@ function Column (props) {
             backgroundColor: props.bgColorConten,
             borderColor: props.bgColorTitle
             }}>
-            <h3 style={{backgroundColor: props.bgColorTitle}}>
+            <h3>
                 {props.columnType}
             </h3>
 

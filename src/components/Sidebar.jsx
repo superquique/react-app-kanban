@@ -5,7 +5,7 @@ function Sidebar () {
         <div className="sidebar">
             <ul className="sidebar-menu">
                 <li>
-                    <NavLink to="/"><h3>Inicio</h3></NavLink>
+                    <NavLink to="/"><h3>Dashboard</h3></NavLink>
                 </li>
                 <li>
                     <NavLink to="/about"><h3>Acerca de</h3></NavLink>

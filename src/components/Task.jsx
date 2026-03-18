@@ -14,7 +14,7 @@ function Task (props) {
     }))
 
     return (
-        <div ref={drag} className="task" style={{backgroundColor: props.bgColor}}>
+        <div ref={drag} className="task">
             { props.taskDetails &&
             <>  
                 <div className="task-header">
