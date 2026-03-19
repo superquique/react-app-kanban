@@ -31,9 +31,11 @@ function Column (props) {
             backgroundColor: props.bgColorConten,
             borderColor: props.bgColorTitle
             }}>
-            <h3>
-                {props.columnType}
-            </h3>
+            <div className="column-header">
+                <h3>
+                    {props.columnType}
+                </h3>
+            </div>
 
             { filteredTasks &&
                 filteredTasks.map((taskObj, i, arr) => {
