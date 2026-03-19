@@ -39,11 +39,13 @@ label {
 input {
   margin-left: .5rem;
   margin-right: .5rem;
+  font-size: medium;
 }
 
 select {
   margin-left: .5rem;
   margin-right: .5rem;
+  font-size: medium;
 }
 
 .app-container {
@@ -253,6 +255,13 @@ select {
   display: flex;
   flex: 1;
   justify-content: center;
+  align-items: center;
+}
+
+.task-page button {
+  background-color: var(--main-color);
+  margin: 10px;
+  flex: 0;
 }
 
 .task-details {
@@ -265,8 +274,21 @@ select {
 .task-detail-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
+  color: var(--main-color);
+  background-color: var(--task-bg-color);
+  border: 4px solid var(--main-color);
+  border-radius: 10px;
+  padding: 2em;
+  width: 50%;
+  height: 50%;
+}
+
+.task-detail-card label {
+  display: flex;
   align-items: center;
+  flex-grow: 1;
+  width: 100%;
 }
 
 .task-details-column {
@@ -350,6 +372,23 @@ select {
   align-items: center;
 }
 
+.header-task-detail-card {
+  display: flex;
+  gap: 10px;
+  padding-inline: 10px;
+  padding-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-task-detail-card input {
+  flex-basis: auto;
+  flex-grow: 1;
+  height: 1rem;
+  line-height: 2rem;
+  margin: 0px;
+}
+
 .form-header-add-task input {
   flex-basis: auto;
   flex-grow: 1;
@@ -367,7 +406,22 @@ select {
   justify-content: center;
 }
 
+.info-task-detail-card {
+  display: flex;
+  gap: 10px;
+  flex-grow: 1;
+  padding-inline: 10px;
+  padding-block: 10px;
+  justify-content: center;
+}
+
 .form-column-add-task {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.column-task-detail-card {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
