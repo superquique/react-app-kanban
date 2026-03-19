@@ -4,6 +4,7 @@ import Task from "./Task";
 function Column (props) {
 
     const moveTask = (taskId) => {
+        console.log("taskId", taskId)
         const filteredTask = props.taskList.find((task) => {
             return task.id === taskId;
         })
@@ -13,13 +14,12 @@ function Column (props) {
         console.log(filteredTask);
 
         props.onUpdate(filteredTask);
-       
     }
 
     const [collectedProps, drop] = useDrop(() => ({
         accept: 'TASK',
         drop: (item) => moveTask(item.id)
-    }))
+    }), [props.taskList, props.columnType])
 
     const filteredTasks = props.taskList.filter((task) => {
         return task.status === props.columnType;
@@ -27,10 +27,7 @@ function Column (props) {
     
 
     return (
-        <div ref={drop} className="column" style={{
-            backgroundColor: props.bgColorConten,
-            borderColor: props.bgColorTitle
-            }}>
+        <div ref={drop} className="column">
             <div className="column-header">
                 <h3>
                     {props.columnType}
