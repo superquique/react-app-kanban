@@ -54,12 +54,6 @@ function App() {
     }
     
   }
-
-  // const taskColors = {
-  //   "To Do": ["crimson", "#ED4062"],
-  //   "In Progress": ["#DC5014", "#ED7440"],
-  //   "Done": ["#14A0DC", "#40B9ED"]
-  // }
   
   const taskColors = {
     "To Do": ["", ""],
